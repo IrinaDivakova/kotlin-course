@@ -13,6 +13,9 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
+dependencies {
+    implementation("com.google.code.gson:gson:2.10.1") // Убедитесь, что версия актуальная
+}
 tasks.test {
     useJUnitPlatform()
 }
