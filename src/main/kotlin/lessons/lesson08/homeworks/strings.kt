@@ -1,4 +1,4 @@
-package org.example.lessons.lesson08
+package org.example.lessons.lesson08.homeworks
 
 fun main() {
     example1(phrase = "Это невозможно выполнить за один день")
