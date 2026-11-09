@@ -10,6 +10,9 @@ abstract class ProgrammedDevices(
         println("The $action is set up")
     }
     override fun execute() {
-        println("The programm is executed")
+        println("The programm is started")
+    }
+    open fun finish() {
+        println("The program is executed")
     }
 }

@@ -85,5 +85,43 @@ class Kettle(
     }
 
 }
-class Oven ()
+class Oven (
+    brand: String,
+    serialNumber: String,
+    maxTemperature: Int = 250
+):TemperatureRegulatedAndOpenableDevice (brand = brand, serialNumber = serialNumber, maxTemperature = maxTemperature), LightEmitting {
+    override fun setTemperature(temp: Int) {
+        if (!isOn) {
+            println("The oven $brand is Off. Switch it on")
+        } else {
+            if (temp > maxTemperature) {
+                println("Error. Temperature mustn`t be more than $maxTemperature")
+            } else {
+                println("The temperature $temp is set")
+            }
+        }
+    }
+    fun playSound(sound: String) {
+        println(sound)
+    }
+
+    override fun execute() {
+        super.execute()
+        emitLight()
+    }
+    override fun finish() {
+       super.finish()
+       playSound(sound = "horray!")
+        completeLightEmission()
+    }
+
+    override fun emitLight() {
+        println("The light is switched on")
+    }
+
+    override fun completeLightEmission() {
+        println("The light is switched off")
+    }
+}
+
 class WashMachine()
